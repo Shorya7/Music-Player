@@ -58,7 +58,7 @@ const Login = () => {
           setTimeout(() => {
             navigate("/home");
           }, 2000);
-          toast.success(`Welcome ${result.data.user} `);
+          toast.success(`Welcome ${result.data.name} `);
         } else toast.error(`Incorrect Details`);
         console.log(result);
       })
@@ -101,9 +101,8 @@ const Login = () => {
       })
       .then((result) => {
         if (result.status === 200) {
-            setSendOTP(true);
-        }
-           else toast.error(`${result.data.message}`);
+          setSendOTP(true);
+        } else toast.error(`${result.data.message}`);
         console.log(result);
       })
       .catch((err) => {
@@ -113,154 +112,166 @@ const Login = () => {
   }
 
   return (
-    <><ToastContainer
-    position="top-right"
-    autoClose={4000}
-    limit={5}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="dark"
-  />
-    <div className="fullscr">
-      <div className="main">
-        <p className="logo">MusiCity</p>
+    <>
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        limit={5}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      <div className="fullscr">
+        <div className="main">
+          <p className="logo">MusiCity</p>
 
-        <section className="forms-section">
-          <div className="forms">
-            <div
-              className={`form-wrapper ${
-                activeForm === "login" ? "is-active" : ""
-              }`}
-            >
-              <button
-                type="button"
-                className="switcher switcher-login"
-                onClick={() => handleSwitchForm("login")}
+          <section className="forms-section">
+            <div className="forms">
+              <div
+                className={`form-wrapper ${
+                  activeForm === "login" ? "is-active" : ""
+                }`}
               >
-                Login
-                <span className="underline"></span>
-              </button>
-              <form className="form form-login">
-                <fieldset>
-                  <legend>
-                    Please, enter your email and password for login.
-                  </legend>
-                  <div className="input-block">
-                    <label htmlFor="login-email">E-mail</label>
-                    <input
-                      id="login-email"
-                      type="email"
-                      required
-                      value={email}
-                      onChange={handleEmailChange}
-                    />
-                  </div>
-                  <div className="input-block">
-                    <label htmlFor="login-password">Password</label>
-                    <input
-                      id="login-password"
-                      type="password"
-                      required
-                      value={password}
-                      onChange={handlePasswordChange}
-                    />
-                  </div>
-                </fieldset>
-                <button type="submit" className="btn-login" onClick={login}>
+                <button
+                  type="button"
+                  className="switcher switcher-login"
+                  onClick={() => handleSwitchForm("login")}
+                >
                   Login
+                  <span className="underline"></span>
                 </button>
-              </form>
-            </div>
-            <div
-              className={`form-wrapper ${
-                activeForm === "signup" ? "is-active" : ""
-              }`}
-            >
-              <button
-                type="button"
-                className="switcher switcher-signup"
-                onClick={() => handleSwitchForm("signup")}
-              >
-                Sign Up
-                <span className="underline"></span>
-              </button>
-              <form className="form form-signup">
-                <fieldset>
-                  <legend>
-                    Please, enter your name, email, password, and other details for sign up.
-                  </legend>
-                  
-                  {showAdditionalFields ? (
-                    <div>
-                      <div className="input-block">
-                        <label htmlFor="signup-gender">Gender</label>
-                        <input
-                          id="signup-gender"
-                          type="text"
-                          required
-                          value={gender}
-                          onChange={handleGenderChange}
-                        />
-                      </div>
-                      <div className="input-block">
-                        <label htmlFor="signup-dob">Date of Birth</label>
-                        <input
-                          id="signup-dob"
-                          type="text"
-                          required
-                          value={dob}
-                          onChange={handleDobChange}
-                        />
-                      </div>
+                <form className="form form-login">
+                  <fieldset>
+                    <legend>
+                      Please, enter your email and password for login.
+                    </legend>
+                    <div className="input-block">
+                      <label htmlFor="login-email">E-mail</label>
+                      <input
+                        id="login-email"
+                        type="email"
+                        required
+                        value={email}
+                        onChange={handleEmailChange}
+                      />
                     </div>
-                  ) :<> <div className="input-block">
-                  <label htmlFor="signup-username">Name</label>
-                  <input
-                    id="signup-username"
-                    type="text"
-                    required
-                    value={name}
-                    onChange={handleNameChange}
-                  />
-                </div>
-                <div className="input-block">
-                  <label htmlFor="signup-email">E-mail</label>
-                  <input
-                    id="signup-email"
-                    type="email"
-                    required
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                </div>
-                <div className="input-block">
-                  <label htmlFor="signup-password">Create Password</label>
-                  <input
-                    id="signup-password"
-                    type="password"
-                    required
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                </div>{sendOTP ? (
-                      <div className="input-block">
-                        <label htmlFor="signup-otp">OTP</label>
-                        <input
-                          id="signup-otp"
-                          type="text"
-                          required
-                          value={OTP}
-                          onChange={handleOTPChange}
-                        />
+                    <div className="input-block">
+                      <label htmlFor="login-password">Password</label>
+                      <input
+                        id="login-password"
+                        type="password"
+                        required
+                        value={password}
+                        onChange={handlePasswordChange}
+                      />
+                    </div>
+                  </fieldset>
+                  <button type="submit" className="btn-login" onClick={login}>
+                    Login
+                  </button>
+                </form>
+              </div>
+              <div
+                className={`form-wrapper ${
+                  activeForm === "signup" ? "is-active" : ""
+                }`}
+              >
+                <button
+                  type="button"
+                  className="switcher switcher-signup"
+                  onClick={() => handleSwitchForm("signup")}
+                >
+                  Sign Up
+                  <span className="underline"></span>
+                </button>
+                <form className="form form-signup">
+                  <fieldset>
+                    <legend>
+                      Please, enter your name, email, password, and other
+                      details for sign up.
+                    </legend>
+
+                    {showAdditionalFields ? (
+                      <div>
+                        <div className="input-block">
+                          <label htmlFor="signup-gender">Gender</label>
+                          <input
+                            id="signup-gender"
+                            type="text"
+                            required
+                            value={gender}
+                            onChange={handleGenderChange}
+                          />
+                        </div>
+                        <div className="input-block">
+                          <label htmlFor="signup-dob">Date of Birth</label>
+                          <input
+                            id="signup-dob"
+                            type="text"
+                            required
+                            value={dob}
+                            onChange={handleDobChange}
+                          />
+                        </div>
+                        {sendOTP ? (
+                          <div className="input-block">
+                            <label htmlFor="signup-otp">OTP</label>
+                            <input
+                              id="signup-otp"
+                              type="text"
+                              required
+                              value={OTP}
+                              onChange={handleOTPChange}
+                            />
+                          </div>
+                        ) : null}
                       </div>
-                    ) : null}</>}
-                </fieldset>
-                {showAdditionalFields ? (sendOTP ? (
+                    ) : (
+                      <>
+                        {" "}
+                        <div className="input-block">
+                          <label htmlFor="signup-username">Name</label>
+                          <input
+                            id="signup-username"
+                            type="text"
+                            required
+                            value={name}
+                            onChange={handleNameChange}
+                          />
+                        </div>
+                        <div className="input-block">
+                          <label htmlFor="signup-email">E-mail</label>
+                          <input
+                            id="signup-email"
+                            type="email"
+                            required
+                            value={email}
+                            onChange={handleEmailChange}
+                          />
+                        </div>
+                        <div className="input-block">
+                          <label htmlFor="signup-password">
+                            Create Password
+                          </label>
+                          <input
+                            id="signup-password"
+                            type="password"
+                            required
+                            value={password}
+                            onChange={handlePasswordChange}
+                          />
+                        </div>
+                        
+                      </>
+                    )}
+                  </fieldset>
+                  {showAdditionalFields ? (
+                    sendOTP ? (
                       <button
                         type="submit"
                         className="btn-signup"
@@ -276,17 +287,22 @@ const Login = () => {
                       >
                         Send OTP
                       </button>
-                    )): (
-                  <button type="submit" className="btn-signup" onClick={handleNext}>
-                    Next
-                  </button>
-                )}
-              </form>
+                    )
+                  ) : (
+                    <button
+                      type="submit"
+                      className="btn-signup"
+                      onClick={handleNext}
+                    >
+                      Next
+                    </button>
+                  )}
+                </form>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
-    </div>
     </>
   );
 };
