@@ -320,3 +320,11 @@
     color: white;
     background:#a7e245;
 }
+@media (max-width:585px){
+    .main .logo{
+        font-size: 45px;
+    }
+    .main{
+        width: 400px;
+    }
+}
