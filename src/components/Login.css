@@ -25,6 +25,7 @@
     font-size: 70px;
     font-weight: 600;
     color: #9FFF45;
+    text-align: center;
   }
   *,
 *::before,
@@ -32,11 +33,7 @@
 	box-sizing: border-box;
 }
 
-body {
-	margin: 0;
-	font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-	background: #3b4465;
-}
+
 
 .forms-section {
 	display: flex;
@@ -103,12 +100,12 @@ body {
 }
 
 .form-wrapper.is-active .switcher-login {
-	color: #fff;
+	color: #9FFF45;
 	transform: translateX(90px);
 }
 
 .form-wrapper.is-active .switcher-signup {
-	color: #fff;
+	color: #9FFF45;
 	transform: translateX(-90px);
 }
 
@@ -263,8 +260,9 @@ body {
 }
 
 .input-block label {
-	font-size: 14px;
-  color: #a1b4b4;
+	font-size: 15px;
+    font-weight: 600;
+  color: #2135e5;
 }
 
 .input-block input {
@@ -304,10 +302,21 @@ body {
 	background: #a7e245;
 	transform: translateX(-30%);
 }
+.btn-login:hover{
+    cursor: pointer;
+    color: #a7e245;
+    background: white;
+    box-shadow: inset 0 0 0 2px #a7e245;
+}
 
 .btn-signup {
 	color: #a7e245;
 	background: #fbfdff;
 	box-shadow: inset 0 0 0 2px #a7e245;
 	transform: translateX(30%);
+}
+.btn-signup:hover{
+    cursor: pointer;
+    color: white;
+    background:#a7e245;
 }
