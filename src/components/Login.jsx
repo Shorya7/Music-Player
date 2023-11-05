@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import Particles from './Particles';
 
 const Login = () => {
   const [activeForm, setActiveForm] = useState("login");
@@ -303,6 +304,7 @@ const Login = () => {
           </section>
         </div>
       </div>
+      <Particles id="tsparticles" />
     </>
   );
 };
